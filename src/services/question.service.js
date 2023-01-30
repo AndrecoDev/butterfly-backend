@@ -2,7 +2,10 @@ const Question = require("../models/Question");
 
 const questionService = {
   getAll: async function () {
-    let questions = await Question.find({});
+    let questions = await Question.find();
+
+    questions.sort(() => Math.random() - 0.5);
+
     return questions;
   },
 
